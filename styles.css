@@ -1,0 +1,245 @@
+body{
+  background-color: #191C23;
+}
+
+@font-face {
+  font-family: digital;
+  src: url(digital.TTF);
+}
+
+.contenedor{
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: auto;
+  
+  background-color: #EADCCE;
+  border: solid 2px black;
+}
+
+.contenedor-hollidays{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  width: 100%;
+  margin-bottom: 35px;
+  border: solid 1px red;
+  @media (max-width: 1250px) {
+    flex-wrap: wrap;
+  }
+}
+
+.div1{
+  width: 50%;
+  @media (max-width: 1250px) {
+    width: 100%;
+  }
+  border: solid 1px yellow;
+}
+
+.div2{
+  width: 50%;
+  @media (max-width: 1250px) {
+    width: 100%;
+  }
+  border: solid 1px yellow;
+}
+
+.contenedor-newDate{
+  
+  margin:auto;
+  width: 70%;
+  @media (max-width: 1250px) {
+    width: 100%;
+  }
+  border: solid 3px red;
+}
+
+.contenedor-timer1{
+  margin: auto;
+  max-width: 250px;
+  height: 100px;
+  padding: 15px;
+  border: solid 1px blue;
+  border-radius: 30px;
+}
+.contenedor-timer2{
+  margin: auto;
+  max-width: 250px;
+  height: 100px;
+  padding: 15px;
+  border: solid 1px blue;
+  border-radius: 30px;
+}
+
+.contenedor-timer3{
+  margin: auto;
+  max-width: 250px;
+  height: 100px;
+  padding: 15px;
+  border: solid 1px blue;
+  border-radius: 30px;
+}
+
+.timer-clock{
+  font-family: 'digital';
+  color: #009929;
+  font-size: 25px;
+  text-shadow:
+  0 0 5px rgba(0,255,12,1),
+  0 0 10px rgba(0,255,12,1),
+  0 0 20px rgba(0,255,12,1),
+  0 0 40px rgba(38,104,127,1),
+  0 0 50px rgba(38,104,127,1);
+}
+
+.timer-info{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 80%;
+  height: 45px;
+  margin: auto;
+  text-align:center;
+  flex-wrap: nowrap;
+  color: #808080;
+  border: solid 1px green;
+}
+
+.timer-days{
+  font-size: 10px;
+  border: solid 1px black;
+}
+
+.timer-space{
+  font-family: 'PT Sans', sans-serif;
+  font-size: 20px;
+  color: #444F4B;
+}
+
+.timer-title{
+  font-family:  'PT Sans', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  text-shadow:
+  0 0 5px rgba(0,178,255,1),
+  0 0 10px rgba(0,178,255,1),
+  0 0 20px rgba(0,178,255,1),
+  0 0 40px rgba(38,104,127,1),
+  0 0 80px rgba(38,104,127,1),
+  0 0 90px rgba(38,104,127,1),
+  0 0 100px rgba(38,104,127,1),
+  0 0 140px rgba(38,104,127,1),
+  0 0 180px rgba(38,104,127,1);
+  color: #2b97fa;
+}
+
+.new-date{
+  border: solid 1px green;
+}
+
+/* ESTILOS PARA EL FORMULARIO CREADOR DE CONTADOR*/
+.contenedor-form{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  max-width: 80%;
+  margin: auto;
+  border: solid 2px #0ea5e9;
+}
+
+.input-name{
+  display: inline-block;
+	width: 200px;
+  margin: 5px;
+  padding: 7px 10px;
+  height: 25px;
+	background: #f0f0f0;
+	font-size: 1em;
+	color: #999;
+	font-family: 'Quicksand', sans-serif;
+	border:2px solid rgba(0,0,0,0.2);
+  border-radius: 12px;
+}
+
+.select-option{
+  margin: 5px;
+  height: 25px;
+}
+
+.content-select{
+  max-width: 400px;
+	position: relative;
+}
+
+.content-select select{
+  appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+  display: inline-block;
+	width: 180px;
+	cursor: pointer;
+  padding: 7px 10px;
+  height: 42px;
+  outline: 0; 
+	background: #f0f0f0;
+	font-size: 1em;
+	color: #999;
+	font-family: 'Quicksand', sans-serif;
+	border:2px solid rgba(0,0,0,0.2);
+  border-radius: 12px;
+  position: relative;
+  transition: all 0.25s ease;
+}
+
+.content-select select:hover{
+	background: #dbeafe;
+}
+
+.content-select i{
+	position: absolute;
+	right: 20px;
+	top: calc(50% - 13px);
+	width: 16px;
+	height: 16px;
+	display: block;
+	border-left:4px solid #2b97fa;
+	border-bottom:4px solid #2b97fa;
+	transform: rotate(-45deg); /* Giramos el cuadrado */
+	transition: all 0.25s ease;
+}
+ 
+.content-select:hover i{
+	margin-top: 3px;
+}
+
+.button-create{
+  width: 300px;
+  margin: auto;
+  padding: 30px 0;
+  border: solid 2px #0ea5e9;
+}
+
+.button{
+  appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+  display: inline-block;
+	width: 250px;
+  margin: 25px;
+	cursor: pointer;
+  padding: 7px 10px;
+  height: 42px;
+  outline: 0;
+	background: #f0f0f0;
+	font-size: 1em;
+	color: #999;
+	font-family: 'Quicksand', sans-serif;
+	border: 3px solid #2b97fa;
+  border-radius: 12px;
+}
+
+.button:hover{
+  background: #dbeafe;
+}

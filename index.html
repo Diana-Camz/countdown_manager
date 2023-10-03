@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+</head>
+  <title>Countdown</title>
+</head>
+<body>
+  <div id="holidayContainer"></div>
+  <!--<img src="/bakground.jpg" class="img-background" alt="Background">-->
+
+  <!--CRHISTMAS COUNTDOWN-->
+  <!--<div class="contenedor">
+    <div class="contenedor-hollidays">
+    <div class="div1">
+      <div class="contenedor-timer1">
+        <p class="timer-title"><span>Christmas</span> Countdown</p>
+        
+        <div class="timer-info">
+          <div class="timer-days">
+            <div id="ch-newDay" class="timer-clock">00</div>
+            <p>Days</p>
+          </div>
+
+          <div class="timer-space">:</div>
+
+          <div class="timer-days">
+            <div id="ch-newHour" class="timer-clock">00</div>
+            <p>Hours</p>
+          </div>
+
+          <div class="timer-space">:</div>
+
+          <div class="timer-days">
+            <div id="ch-newMinute" class="timer-clock">00</div>
+            <p>Minutes</p>
+          </div>
+
+          <div class="timer-space">:</div>
+
+          <div class="timer-days">
+            <div id="ch-newSecond" class="timer-clock">00</div>
+            <p>Seconds</p>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+  <!--HALLOWEEN COUNTDOWN-->
+    <!--<div class="div2">
+      <div class="contenedor-timer2">
+        <p class="timer-title"><span>Halloween</span> Countdown</p>
+        
+        <div class="timer-info">
+          <div class="timer-days">
+            <div id="ha-newDay" class="timer-clock">00</div>
+            <p>Days</p>
+          </div>
+
+          <div class="timer-space">:</div>
+
+          <div class="timer-days">
+            <div id="ha-newHour" class="timer-clock">00</div>
+            <p>Hours</p>
+          </div>
+
+          <div class="timer-space">:</div>
+
+          <div class="timer-days">
+            <div id="ha-newMinute" class="timer-clock">00</div>
+            <p>Minutes</p>
+          </div>
+
+          <div class="timer-space">:</div>
+
+          <div class="timer-days">
+            <div id="ha-newSecond" class="timer-clock">00</div>
+            <p>Seconds</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!--NEW COUNTDOWN-->
+  <div class="contenedor-newDate">
+   <!-- <div class="contenedor-timer3"> -->
+      <p class="timer-title">Create your own Countdowns</p>
+      <div class="new-date">
+        <form class="contenedor-form" id="form">
+          
+            <input type="text" name="name" id="name" placeholder="Add a name" class="input-name" autocomplete="off">
+          
+          <div class="content-select">
+            <select name="optionMonth" id="optionMonth" class="select-option" onchange="display1.getMonth()">
+              <option disabled selected>Select a Month</option>
+              <option value="Jan">January</option>
+              <option value="Feb">February</option>
+              <option value="Mar">March</option>
+              <option value="Apr">April</option>
+              <option value="May">May</option>
+              <option value="Jun">June</option>
+              <option value="Jul">July</option>
+              <option value="Aug">August</option>
+              <option value="Sep">September</option>
+              <option value="Oct">October</option>
+              <option value="Nov">November</option>
+              <option value="Dec">December</option>
+            </select>
+            <i></i>
+          </div>
+        
+          <div class="content-select">          
+            <select name="optionDay" id="optionDay" class="select-option" onchange="display2.getDay()">
+              <option disabled selected>Select a Day</option>
+              <option value="01">01</option>
+              <option value="02">02</option>
+              <option value="03">03</option>
+              <option value="04">04</option>
+              <option value="05">05</option>
+              <option value="06">06</option>
+              <option value="07">07</option>
+              <option value="08">08</option>
+              <option value="09">09</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
+              <option value="21">21</option>
+              <option value="22">22</option>
+              <option value="23">23</option>
+              <option value="24">24</option>
+              <option value="25">25</option>
+              <option value="26">26</option>
+              <option value="27">27</option>
+              <option value="28">28</option>
+              <option value="29">29</option>
+              <option value="30">30</option>
+              <option value="31">31</option>
+            </select>
+            <i></i>
+          </div>
+
+          <div class="content-select"> 
+            <select name="optionYear" id="optionYear" class="select-option" onchange="display3.getYear()">
+              <option disabled selected>Select a Year</option>
+              <option value="2023">2023</option>
+              <option value="2024">2024</option>
+              <option value="2025">2025</option>
+              <option value="2026">2026</option>
+              <option value="2027">2027</option>
+              <option value="2028">2028</option>
+              <option value="2029">2029</option>
+              <option value="2030">2030</option>
+              <option value="2031">2031</option>
+              <option value="2032">2032</option>
+              <option value="2033">2033</option>
+            </select>
+            <i></i>
+          </div>
+        </form>
+
+        <div class="button-create"> 
+          <button id="createButton" type="button" class="button" onclick="Create()">Create Countdown</button>
+        </div>
+      
+        <div>
+          <div id="newMonth">M o n t h</div>
+          <div id="newDay2">D a y</div>
+          <div id="newYear">Y e a r</div>
+        </div>
+      </div> <!--NEW DATE-->
+    <div id="newCountdown-container">
+      <!--<div class="contenedor-timer3">
+        <div class="timer-info">
+          <div class="timer-days">
+            <div id="newDay" class="timer-clock">00</div>
+            <p>Days</p>
+          </div>
+
+          <div class="timer-space">:</div>
+
+          <div class="timer-days">
+            <div id="newHour" class="timer-clock">11</div>
+            <p>Hours</p>
+          </div>
+
+          <div class="timer-space">:</div>
+
+          <div class="timer-days">
+            <div id="newMinute" class="timer-clock">22</div>
+            <p>Minutes</p>
+          </div>
+
+          <div class="timer-space">:</div>
+
+          <div class="timer-days">
+            <div id="newSecond" class="timer-clock">33</div>
+            <p>Seconds</p>
+          </div>
+        </div>
+      </div> -->
+     </div>
+    </div>
+
+
+
+
+
+<!--<script src="Countdown3.js"></script>-->
+<script src="Timer3.js"></script>
+<script src="ShowSelected.js"></script>
+<script src="script4.js"></script>
+
+
+<!--
+<script src="script.js"></script>
+<script src="Countdown.js"></script>
+<script src="Timer.js"></script>-->
+</body>
+</html>
