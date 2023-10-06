@@ -7,91 +7,52 @@ body{
   src: url(digital.TTF);
 }
 
-.contenedor{
-  display: flex;
-  flex-direction: column;
-  width: 80%;
-  margin: auto;
-  
-  background-color: #EADCCE;
-  border: solid 2px black;
-}
-
-.contenedor-hollidays{
+.holidayContainer{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: nowrap;
   width: 100%;
-  margin-bottom: 35px;
-  border: solid 1px red;
+  height: 250px;
+  margin: 35px 0;
   @media (max-width: 1250px) {
     flex-wrap: wrap;
   }
 }
 
-.div1{
-  width: 50%;
-  @media (max-width: 1250px) {
-    width: 100%;
-  }
-  border: solid 1px yellow;
-}
-
-.div2{
-  width: 50%;
-  @media (max-width: 1250px) {
-    width: 100%;
-  }
-  border: solid 1px yellow;
-}
-
 .contenedor-newDate{
-  
   margin:auto;
-  width: 70%;
-  @media (max-width: 1250px) {
-    width: 100%;
-  }
-  border: solid 3px red;
+  width: 100%;
 }
 
-.contenedor-timer1{
-  margin: auto;
-  max-width: 250px;
-  height: 100px;
-  padding: 15px;
-  border: solid 1px blue;
-  border-radius: 30px;
-}
-.contenedor-timer2{
-  margin: auto;
-  max-width: 250px;
-  height: 100px;
-  padding: 15px;
-  border: solid 1px blue;
-  border-radius: 30px;
-}
 
+/* ESTILOS DE LOS CONTADORES QUE SE VAN CREANDO*/
+.newCountdown-container{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
 .contenedor-timer3{
-  margin: auto;
-  max-width: 250px;
-  height: 100px;
+  margin: 15px 15px;
+  width: 40%;
+  height: 170px;
   padding: 15px;
-  border: solid 1px blue;
+  border: solid 1px #131617;
   border-radius: 30px;
+  box-shadow: 
+    2px 2px 40px #131617,
+    10px 10px 35px #131617;
+   
 }
 
-.timer-clock{
-  font-family: 'digital';
-  color: #009929;
-  font-size: 25px;
-  text-shadow:
-  0 0 5px rgba(0,255,12,1),
-  0 0 10px rgba(0,255,12,1),
-  0 0 20px rgba(0,255,12,1),
-  0 0 40px rgba(38,104,127,1),
-  0 0 50px rgba(38,104,127,1);
+.timer-name{
+  font-family:  OCR A Std, monospace;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  margin: 0;
+  height: 25px;
+  color: #BFCFD5 ;
 }
 
 .timer-info{
@@ -99,54 +60,92 @@ body{
   flex-direction: row;
   justify-content: space-around;
   width: 80%;
-  height: 45px;
+  height: 60px;
   margin: auto;
   text-align:center;
   flex-wrap: nowrap;
   color: #808080;
-  border: solid 1px green;
 }
 
 .timer-days{
-  font-size: 10px;
-  border: solid 1px black;
+  font-size: 12px;
+  max-width: 40px;
+}
+
+.timer-clock{
+  font-family: 'digital';
+  color: #2DFFFC;
+  font-size: 45px;
+  text-shadow: 
+    0 0 20px #2DFFFC,
+    0 0 20px #2DFFFC,
+    0 0 5px #2DFFFC,
+    0 0 3px #2DFFFC;
 }
 
 .timer-space{
-  font-family: 'PT Sans', sans-serif;
-  font-size: 20px;
-  color: #444F4B;
+  font-family: 'digital';
+  font-size: 40px;
+  color: #2DFFFC;
+  text-shadow: 
+    0 0 20px #2DFFFC,
+    0 0 20px #2DFFFC,
+    0 0 5px #2DFFFC,
+    0 0 3px #2DFFFC;
 }
 
-.timer-title{
-  font-family:  'PT Sans', sans-serif;
-  font-size: 20px;
-  font-weight: 500;
-  text-shadow:
-  0 0 5px rgba(0,178,255,1),
-  0 0 10px rgba(0,178,255,1),
-  0 0 20px rgba(0,178,255,1),
-  0 0 40px rgba(38,104,127,1),
-  0 0 80px rgba(38,104,127,1),
-  0 0 90px rgba(38,104,127,1),
-  0 0 100px rgba(38,104,127,1),
-  0 0 140px rgba(38,104,127,1),
-  0 0 180px rgba(38,104,127,1);
-  color: #2b97fa;
+/*ESTILOS PARA EL BOTON DE ELIMINAR*/
+.container-delete{
+  display: flex;
+  justify-content: space-around;
+  height: 30px;
+  margin: 15px 0 40px 0;
 }
 
-.new-date{
-  border: solid 1px green;
+.delete{
+  cursor: pointer;
+  font-size: 30px;
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  margin-right: -29px;
+  margin-top: -12px;
+  color: #273746;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  &:hover{
+    color: #2DFFFC;
+  text-shadow: 
+    0 0 20px #2DFFFC,
+    0 0 20px #2DFFFC,
+    0 0 5px #2DFFFC,
+    0 0 3px #2DFFFC; 
+  }
 }
 
 /* ESTILOS PARA EL FORMULARIO CREADOR DE CONTADOR*/
+.timer-title{
+  font-family: 'digital';
+  font-size: 50px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  text-align: center;
+  color: #2DFFFC;
+  text-shadow:
+   0 0 10px #AAB7B8;
+}
+
 .contenedor-form{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  max-width: 80%;
+  max-width: 90%;
   margin: auto;
-  border: solid 2px #0ea5e9;
 }
 
 .input-name{
@@ -165,7 +164,7 @@ body{
 
 .select-option{
   margin: 5px;
-  height: 25px;
+  height: 42px;
 }
 
 .content-select{
@@ -214,20 +213,13 @@ body{
 	margin-top: 3px;
 }
 
-.button-create{
-  width: 300px;
-  margin: auto;
-  padding: 30px 0;
-  border: solid 2px #0ea5e9;
-}
-
 .button{
   appearance: none;
 	-webkit-appearance: none;
 	-moz-appearance: none;
   display: inline-block;
-	width: 250px;
-  margin: 25px;
+	width: 200px;
+  margin: 5px;
 	cursor: pointer;
   padding: 7px 10px;
   height: 42px;
@@ -242,4 +234,25 @@ body{
 
 .button:hover{
   background: #dbeafe;
+}
+
+.container-info{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 40px 0;
+  border-bottom: solid 2px black;
+}
+
+.newMonth, .newDay2, .newYear{
+  font-size: 40px;
+  color: #E5E7E9;
+  text-shadow: 
+    0 0 5px rgba(255,59,147,1),
+    0 0 10px rgba(255,59,147,1),
+    0 0 40px rgba(255,59,147,1),
+    0 0 40px rgba(255,59,147,1),
+    0 0 40px rgba(255,59,147,1),
+    0 0 40px rgba(255,59,147,1);
+  margin: 10px 70px;
 }

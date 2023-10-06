@@ -38,7 +38,6 @@ function getRemainTime(deadline){
 
 // ARRAY DONDE SE AGREGAN LOS OBJETOS CREADOS
 const countdownList = [ 
-  new Timer("Oct 2 2023 00:00:01","Prueba", "newDay", "newHour", "newMinute", "newSecond")
 ];
 
 // FUNCION QUE PERMITE MOSTRAR EN PANTALLA LOS CONTADORES DE LOS OBJETOS CREADOS
@@ -83,33 +82,69 @@ function Create(){
 };
 
 function createCard(remainTime, timer){
-  const text = `
+  if(timer.idCountdown == 0 || timer.idCountdown == 1){
+    let text = `
     <div class="contenedor-timer3">
-      <p class="timer-title"><span>${timer.name}</span> Countdown</p>
-        <div class="timer-info">
-          <div class="timer-days">
-            <div id="newDays-${timer.idCountdown}" class="timer-clock">${remainTime.remainDays}</div>
-            <p>Days</p>
-          </div>
-          <div class="timer-space">:</div>
-          <div class="timer-days">
-            <div id="newHours-${timer.idCountdown}" class="timer-clock">${remainTime.remainHours}</div>
-            <p>Hours</p>
-          </div>
-          <div class="timer-space">:</div>
-          <div class="timer-days">
-            <div id="newMinutes-${timer.idCountdown}" class="timer-clock">${remainTime.remainMinutes}</div>
-            <p>Minutes</p>
-          </div>
-          <div class="timer-space">:</div>
-          <div class="timer-days">
-            <div id="newSeconds-${timer.idCountdown}" class="timer-clock">${remainTime.remainSeconds}</div>
-            <p>Seconds</p>
-          </div>
+      <div class="container-delete">
+        <p class="timer-name"><span>${timer.name}</span> Countdown</p>
+      </div>
+      <div class="timer-info">
+        <div class="timer-days">
+          <div id="newDays-${timer.idCountdown}" class="timer-clock">${remainTime.remainDays}</div>
+          <p>Days</p>
         </div>
+        <div class="timer-space">:</div>
+        <div class="timer-days">
+          <div id="newHours-${timer.idCountdown}" class="timer-clock">${remainTime.remainHours}</div>
+          <p>Hours</p>
+        </div>
+        <div class="timer-space">:</div>
+        <div class="timer-days">
+          <div id="newMinutes-${timer.idCountdown}" class="timer-clock">${remainTime.remainMinutes}</div>
+          <p>Minutes</p>
+        </div>
+        <div class="timer-space">:</div>
+        <div class="timer-days">
+          <div id="newSeconds-${timer.idCountdown}" class="timer-clock">${remainTime.remainSeconds}</div>
+          <p>Seconds</p>
+        </div>
+      </div>
     </div>
-`
+`;
 return text;
+  } else{
+    let text = `
+    <div class="contenedor-timer3">
+      <div class="container-delete">
+        <p class="timer-name"><span>${timer.name}</span> Countdown</p>
+        <span class="delete" onClick="deleteCountdown(${timer.idCountdown})">delete</span>
+      </div>
+      <div class="timer-info">
+        <div class="timer-days">
+          <div id="newDays-${timer.idCountdown}" class="timer-clock">${remainTime.remainDays}</div>
+          <p>Days</p>
+        </div>
+        <div class="timer-space">:</div>
+        <div class="timer-days">
+          <div id="newHours-${timer.idCountdown}" class="timer-clock">${remainTime.remainHours}</div>
+          <p>Hours</p>
+        </div>
+        <div class="timer-space">:</div>
+        <div class="timer-days">
+          <div id="newMinutes-${timer.idCountdown}" class="timer-clock">${remainTime.remainMinutes}</div>
+          <p>Minutes</p>
+        </div>
+        <div class="timer-space">:</div>
+        <div class="timer-days">
+          <div id="newSeconds-${timer.idCountdown}" class="timer-clock">${remainTime.remainSeconds}</div>
+          <p>Seconds</p>
+        </div>
+      </div>
+    </div>
+`;
+return text;
+  }
+
 };
 
 //ACTUALIZA LA INFO DE CADA CONTADOR
@@ -117,8 +152,11 @@ function updateCounters(){
   const mainCountdownList = holidayCountdownList.concat(countdownList);
 
   for(counterInfo of mainCountdownList){
-    const remainTime = getRemainTime(counterInfo.deadline);
-    updateInfo(counterInfo.idCountdown, remainTime);
+    const remainTime1 = getRemainTime(counterInfo.deadline);
+    updateInfo(counterInfo.idCountdown, remainTime1);
+    if(remainTime1.remainTime <= 1){
+      clearInterval(counterInfo.idCountdown)
+    }
   }
 }
 
@@ -132,4 +170,25 @@ function updateInfo(id, remainTime){
   hours.innerHTML = remainTime.remainHours;
   minutes.innerHTML = remainTime.remainMinutes;
   seconds.innerHTML = remainTime.remainSeconds;
+}
+
+//FUNCION QUE RESETEA EL SETINTERVAL EN CERO CUANDO EL CONTADOR HA LLEGADO A SU FIN
+function clearInterval(id){
+  const days = document.getElementById(`newDays-${id}`);
+  const hours = document.getElementById(`newHours-${id}`);
+  const minutes = document.getElementById(`newMinutes-${id}`);
+  const seconds = document.getElementById(`newSeconds-${id}`);
+  days.innerHTML = "00";
+  hours.innerHTML = "00";
+  minutes.innerHTML = "00";
+  seconds.innerHTML = "00";
+}
+
+//FUNCION QUE ELIMINA EL INDICE DEL ARRAY SELECCIONADO
+function deleteCountdown(id){
+  const i = countdownList.findIndex((countdown) => {
+    return countdown.idCountdown == id;
+  });
+  countdownList.splice(i, 1);
+  showCountdown();
 }
