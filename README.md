@@ -1,6 +1,6 @@
 # Countdown Manager 🕒
 
-## Proyect Description
+## Project Description
 
 I almost lost my sanity working on this project, but it's a counter creator as a practice in building more complex objects for me. The counters for Christmas and Halloween are set by default. However, you can create your own by adding the month, day, and year of your choice in the form.
 
@@ -13,7 +13,7 @@ I almost lost my sanity working on this project, but it's a counter creator as a
 1. Clone this repository:
    `git clone https://github.com/Diana-Camz/countdown_manager.git`
 
-2. Visit `http://localhost:3000` in your web browser to see the application in action.
+2. Open the project in your code editor and visualize it in the browser using Live Server.
 
 ## See this Proyect
 You can view this project on the following website: `https://countdown-manager.netlify.app/`
