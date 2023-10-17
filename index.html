@@ -12,17 +12,16 @@
   <title>Countdown</title>
 </head>
 <body>
-  <div id="holidayContainer" class="holidayContainer"></div>
-<!--NEW COUNTDOWN-->
-  <div class="contenedor-newDate">
-      <p class="timer-title">CREATE YOUR OWN COUNTDOWNS</p>
-      <div class="new-date">
-        <form class="contenedor-form" id="form">
+  <div id="containerHoliday" class="container_holiday"></div>
+<!--COUNTDOWN CREATOR CONTAINER-->
+  <div class="container_creator">
+      <p class="container_creator-title">CREATE YOUR OWN COUNTDOWNS</p>
+      <div>
+        <form class="container_form" id="form">
+          <input type="text" name="name" id="name" placeholder="Add a name" class="container_form-name" autocomplete="off" minlength="1">
           
-            <input type="text" name="name" id="name" placeholder="Add a name" class="input-name" autocomplete="off">
-          
-          <div class="content-select">
-            <select name="optionMonth" id="optionMonth" class="select-option" onchange="display1.getMonth()">
+          <div class="container_select">
+            <select name="optionMonth" id="optionMonth" class="container_select-option">
               <option disabled selected>Select a Month</option>
               <option value="Jan">January</option>
               <option value="Feb">February</option>
@@ -40,8 +39,8 @@
             <i></i>
           </div>
         
-          <div class="content-select">          
-            <select name="optionDay" id="optionDay" class="select-option" onchange="display2.getDay()">
+          <div class="container_select">          
+            <select name="optionDay" id="optionDay" class="container_select-option">
               <option disabled selected>Select a Day</option>
               <option value="01">01</option>
               <option value="02">02</option>
@@ -78,8 +77,8 @@
             <i></i>
           </div>
 
-          <div class="content-select"> 
-            <select name="optionYear" id="optionYear" class="select-option" onchange="display3.getYear()">
+          <div class="container_select"> 
+            <select name="optionYear" id="optionYear" class="container_select-option">
               <option disabled selected>Select a Year</option>
               <option value="2023">2023</option>
               <option value="2024">2024</option>
@@ -95,24 +94,19 @@
             </select>
             <i></i>
           </div>
-          <div class="content-select"> 
-            <button id="createButton" type="button" class="button" onclick="Create()">Create Countdown</button>
+          <div class="container_select"> 
+            <button id="createButton" type="button" class="container_select-button" onclick="Create()">Create Countdown</button>
           </div>
         </form>
       
-        <div class="container-info">
-          <div id="newMonth" class="newMonth">M o n t h</div>
-          <div id="newDay2" class="newDay2">D a y</div>
-          <div id="newYear" class="newYear">Y e a r</div>
+        <div class="container_validation">
+          <div id="validation" class="validation_text"></div>
         </div>
-      </div> <!--NEW DATE-->
+      </div> <!--container-creator-->
     </div>
-    <div id="newCountdown-container" class="newCountdown-container"></div>
-  
-
+    <div id="containerNewCountdown" class="container_countdowns"></div>
 
   <script src="Timer.js"></script>
-  <script src="ShowSelected.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

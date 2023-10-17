@@ -1,8 +1,4 @@
-let newMonth = document.getElementById("newMonth");
-let newDay = document.getElementById("newDay2");
-let newYear = document.getElementById("newYear");
-
-//SET INTERVAL PARA CUANDO CARGE LA PAGINA
+//SET INTERVAL THAT BEGINS ONCE THE PAGE IS LOADED
 document.addEventListener("DOMContentLoaded", function(){
   showHolidayCountdowns();
   showCountdown();
@@ -12,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function(){
   }, 1000)
 });
 
-//GENERADOR DEADLINE QUE REALIZA CUENTA REGRESIVA 
+//DEADLINE GENERATOR THAT PERFORMS A COUNTDOWN
 function getRemainTime(deadline){
   let now = new Date(),
   remainTime = (new Date(deadline) - now + 1000) / 1000,
@@ -20,7 +16,6 @@ function getRemainTime(deadline){
   remainMinutes = ("0" + Math.floor(remainTime / 60 % 60)).slice(-2),
   remainHours = ("0" + Math.floor(remainTime / 3600 % 24)).slice(-2),
   remainDays = Math.floor(remainTime / (3600 * 24))
-//console.log(remainTime);
   return {
     remainSeconds,
     remainMinutes,
@@ -30,137 +25,140 @@ function getRemainTime(deadline){
   }
 }; 
 
-// ARRAY DONDE SE ENCUENTRAN LOS OBJETOS POR DEFAULT
+// ARRAY WHERE THE OBJECTS ARE LOCATED BY DEFAULT
  const holidayCountdownList = [
   new Timer("Dec 25 2023 00:00:01", "Christmas", "ch-newDay", "ch-newHour", "ch-newMinute", "ch-newSecond"),
   new Timer("Oct 31 2023 00:00:01", "Halloween", "ha-newDay", "ha-newHour", "ha-newMinute", "ha-newSecond")  
 ]; 
 
-// ARRAY DONDE SE AGREGAN LOS OBJETOS CREADOS
+// ARRAY WHERE THE CREATED OBJECTS ARE ADDED
 const countdownList = [ 
 ];
 
-// FUNCION QUE PERMITE MOSTRAR EN PANTALLA LOS CONTADORES DE LOS OBJETOS CREADOS
+// FUNCTION THAT ALLOWS DISPLAYING ON SCREEN THE COUNTS OF THE OBJECTS BY DEFAULT
 function showHolidayCountdowns(){
   let text = "";
-  
   for(const holidayCountdown of holidayCountdownList){
    const holidayRemain = getRemainTime(holidayCountdown.deadline);
    text += createCard(holidayRemain, holidayCountdown);
-   
   }
-  document.getElementById("holidayContainer").innerHTML = text;
+  document.getElementById("containerHoliday").innerHTML = text;
 }
 
-// FUNCION QUE PERMITE MOSTRAR EN PANTALLA LOS CONTADORES DE LOS OBJETOS CREADOS
+// FUNCTION THAT ALLOWS DISPLAYING ON SCREEN THE COUNTS OF THE CREATED OBJECTS
 function showCountdown(){ 
   let text = "";
   for(const countdown of countdownList){
     const newDatesRemain = getRemainTime(countdown.deadline);
     text += createCard(newDatesRemain, countdown);
   }
-  document.getElementById("newCountdown-container").innerHTML = text;
+  document.getElementById("containerNewCountdown").innerHTML = text;
 }
 
+// FUNCTION THAT CREATES THE OBJECT AND ADDS IT TO "COUNTDOWNLIST" ARRAY
 function Create(){
-  const forma = document.forms["form"];
-  const name = forma["name"];
-  const month = forma["optionMonth"];
-  const day1= forma["optionDay"];
-  const year = forma["optionYear"];
-  
+  const form = document.forms["form"];
+  const name = form["name"];
+  const month = form["optionMonth"];
+  const day= form["optionDay"];
+  const year = form["optionYear"];
+  let text = `<div id="newDay" class="container_info-selected">You must fill in all of the fields</div>`;
 
- const newCountdownObject = new Timer(`${month.value} ${day1.value} ${year.value} 00:00:01`,`${name.value}`, "ch-newDay", "newHour", "newMinute", "newSecond");
-
-  countdownList.push(newCountdownObject);
-  month.selectedIndex = 0; 
-  day1.selectedIndex = 0;
-  year.selectedIndex = 0;
-  
-  showCountdown();
-  
+  if (!month.value || !day.value || !year.value || name.value=="") {
+    document.getElementById("validation").innerHTML = text;
+    console.log("holi");
+    setTimeout(() => {
+      document.getElementById("validation").innerHTML = " ";
+    }, 4000);
+  }else{
+    const newCountdownObject = new Timer(`${month.value} ${day.value} ${year.value} 00:00:01`,`${name.value}`);
+    console.log(name);
+    console.log(name.value);
+    countdownList.push(newCountdownObject);
+    form.reset();
+    showCountdown();
+  }
 };
-
+// FUNCTION THAT INSERTS THE HTML TEMPLATE
 function createCard(remainTime, timer){
   if(timer.idCountdown == 0 || timer.idCountdown == 1){
     let text = `
-    <div class="contenedor-timer3">
-      <div class="container-delete">
-        <p class="timer-name"><span>${timer.name}</span> Countdown</p>
-      </div>
-      <div class="timer-info">
-        <div class="timer-days">
-          <div id="newDays-${timer.idCountdown}" class="timer-clock">${remainTime.remainDays}</div>
+    <div class="container_countdowns-new">
+      <div class="container_countdowns-header">
+        <p class="timer_name"><span>${timer.name}</span> Countdown</p>
+      </div><!--container_countdowns-head-->
+      <div class="timer_info">
+        <div class="timer_info-remain">
+          <div id="newDays-${timer.idCountdown}" class="timer_clock">${remainTime.remainDays}</div>
           <p>Days</p>
         </div>
-        <div class="timer-space">:</div>
-        <div class="timer-days">
-          <div id="newHours-${timer.idCountdown}" class="timer-clock">${remainTime.remainHours}</div>
+        <div class="timer_space">:</div>
+        <div class="timer_info-remain">
+          <div id="newHours-${timer.idCountdown}" class="timer_clock">${remainTime.remainHours}</div>
           <p>Hours</p>
         </div>
-        <div class="timer-space">:</div>
-        <div class="timer-days">
-          <div id="newMinutes-${timer.idCountdown}" class="timer-clock">${remainTime.remainMinutes}</div>
+        <div class="timer_space">:</div>
+        <div class="timer_info-remain">
+          <div id="newMinutes-${timer.idCountdown}" class="timer_clock">${remainTime.remainMinutes}</div>
           <p>Minutes</p>
         </div>
-        <div class="timer-space">:</div>
-        <div class="timer-days">
-          <div id="newSeconds-${timer.idCountdown}" class="timer-clock">${remainTime.remainSeconds}</div>
+        <div class="timer_space">:</div>
+        <div class="timer_info-remain">
+          <div id="newSeconds-${timer.idCountdown}" class="timer_clock">${remainTime.remainSeconds}</div>
           <p>Seconds</p>
         </div>
-      </div>
-    </div>
+      </div> <!--timer_info-->
+    </div> <!--container_countdowns-new-->
 `;
 return text;
   } else{
     let text = `
-    <div class="contenedor-timer3">
-      <div class="container-delete">
-        <p class="timer-name"><span>${timer.name}</span> Countdown</p>
-        <span class="delete" onClick="deleteCountdown(${timer.idCountdown})">delete</span>
-      </div>
-      <div class="timer-info">
-        <div class="timer-days">
-          <div id="newDays-${timer.idCountdown}" class="timer-clock">${remainTime.remainDays}</div>
+    <div class="container_countdowns-new">
+      <div class="container_countdowns-header">
+        <p class="timer_name"><span>${timer.name}</span> Countdown</p>
+        <span class="timer_delete" onClick="deleteCountdown(${timer.idCountdown})">delete</span>
+      </div> <!--container_countdowns-head-->
+      <div class="timer_info">
+        <div class="timer_info-remain">
+          <div id="newDays-${timer.idCountdown}" class="timer_clock">${remainTime.remainDays}</div>
           <p>Days</p>
         </div>
-        <div class="timer-space">:</div>
-        <div class="timer-days">
-          <div id="newHours-${timer.idCountdown}" class="timer-clock">${remainTime.remainHours}</div>
+        <div class="timer_space">:</div>
+        <div class="timer_info-remain">
+          <div id="newHours-${timer.idCountdown}" class="timer_clock">${remainTime.remainHours}</div>
           <p>Hours</p>
         </div>
-        <div class="timer-space">:</div>
-        <div class="timer-days">
-          <div id="newMinutes-${timer.idCountdown}" class="timer-clock">${remainTime.remainMinutes}</div>
+        <div class="timer_space">:</div>
+        <div class="timer_info-remain">
+          <div id="newMinutes-${timer.idCountdown}" class="timer_clock">${remainTime.remainMinutes}</div>
           <p>Minutes</p>
         </div>
-        <div class="timer-space">:</div>
-        <div class="timer-days">
-          <div id="newSeconds-${timer.idCountdown}" class="timer-clock">${remainTime.remainSeconds}</div>
+        <div class="timer_space">:</div>
+        <div class="timer_info-remain">
+          <div id="newSeconds-${timer.idCountdown}" class="timer_clock">${remainTime.remainSeconds}</div>
           <p>Seconds</p>
         </div>
-      </div>
-    </div>
+      </div> <!--timer_info-->
+    </div> <!--container_countdowns-new-->
 `;
 return text;
   }
-
 };
 
-//ACTUALIZA LA INFO DE CADA CONTADOR
+// UPDATES THE INFORMATION OF EACH COUNTER
 function updateCounters(){
   const mainCountdownList = holidayCountdownList.concat(countdownList);
 
   for(counterInfo of mainCountdownList){
-    const remainTime1 = getRemainTime(counterInfo.deadline);
-    updateInfo(counterInfo.idCountdown, remainTime1);
-    if(remainTime1.remainTime <= 1){
+    const remainTimeResult = getRemainTime(counterInfo.deadline);
+    updateInfo(counterInfo.idCountdown, remainTimeResult);
+    if(remainTimeResult.remainTime <= 1){
       clearInterval(counterInfo.idCountdown)
     }
   }
-}
+};
 
-//SELECCIONA LOS HTML-ID'S PARA QUE SE ACTUALICEN EN LA FUNCION UPDATECOUNTERS()
+// SELECT THE HTML ID'S TO BE UPDATED IN THE UPDATECOUNTERS() FUNCTION
 function updateInfo(id, remainTime){
   const days = document.getElementById(`newDays-${id}`);
   const hours = document.getElementById(`newHours-${id}`);
@@ -172,7 +170,7 @@ function updateInfo(id, remainTime){
   seconds.innerHTML = remainTime.remainSeconds;
 }
 
-//FUNCION QUE RESETEA EL SETINTERVAL EN CERO CUANDO EL CONTADOR HA LLEGADO A SU FIN
+// FUNCTION THAT RESETS THE SETINTERVAL TO ZERO WHEN THE COUNTER HAS REACHED ITS END
 function clearInterval(id){
   const days = document.getElementById(`newDays-${id}`);
   const hours = document.getElementById(`newHours-${id}`);
@@ -184,11 +182,11 @@ function clearInterval(id){
   seconds.innerHTML = "00";
 }
 
-//FUNCION QUE ELIMINA EL INDICE DEL ARRAY SELECCIONADO
+// FUNCTION THAT DELETES THE INDEX FROM THE SELECTED ARRAY
 function deleteCountdown(id){
   const i = countdownList.findIndex((countdown) => {
     return countdown.idCountdown == id;
   });
   countdownList.splice(i, 1);
   showCountdown();
-}
+};

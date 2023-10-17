@@ -6,8 +6,7 @@ body{
   font-family: digital;
   src: url(digital.TTF);
 }
-
-.holidayContainer{
+.container_holiday{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -20,19 +19,148 @@ body{
   }
 }
 
-.contenedor-newDate{
+/* STYLES FOR THE COUNTER CREATOR FORM*/
+.container_creator{
   margin:auto;
   width: 100%;
 }
 
+.container_creator-title{
+  font-family: 'digital';
+  font-size: 50px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  text-align: center;
+  color: #2DFFFC;
+  text-shadow:
+   0 0 10px #AAB7B8;
+}
 
-/* ESTILOS DE LOS CONTADORES QUE SE VAN CREANDO*/
-.newCountdown-container{
+.container_form{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  max-width: 90%;
+  margin: auto;
+}
+
+.container_form-name{
+  display: inline-block;
+	width: 200px;
+  margin: 5px;
+  padding: 7px 10px;
+  height: 25px;
+	background: #f0f0f0;
+	font-size: 1em;
+	color: #999;
+	font-family: 'Quicksand', sans-serif;
+	border:2px solid rgba(0,0,0,0.2);
+  border-radius: 12px;
+}
+
+.container_select{
+  max-width: 400px;
+	position: relative;
+}
+
+.container_select-option{
+  margin: 5px;
+  height: 42px;
+}
+
+.container_select select{
+  appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+  display: inline-block;
+	width: 180px;
+	cursor: pointer;
+  padding: 7px 10px;
+  height: 42px;
+  outline: 0; 
+	background: #f0f0f0;
+	font-size: 1em;
+	color: #999;
+	font-family: 'Quicksand', sans-serif;
+	border:2px solid rgba(0,0,0,0.2);
+  border-radius: 12px;
+  position: relative;
+  transition: all 0.25s ease;
+}
+
+.container_select select:hover{
+	background: #dbeafe;
+}
+
+.container_select i{
+	position: absolute;
+	right: 20px;
+	top: calc(50% - 13px);
+	width: 16px;
+	height: 16px;
+	display: block;
+	border-left:4px solid #4387AD;
+	border-bottom:4px solid #4387AD;
+	transform: rotate(-45deg);
+	transition: all 0.25s ease;
+}
+ 
+.container_select:hover i{
+	margin-top: 3px;
+}
+
+.container_select-button{
+  appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+  display: inline-block;
+	width: 200px;
+  margin: 5px;
+	cursor: pointer;
+  padding: 7px 10px;
+  height: 42px;
+  outline: 0;
+	background: #f0f0f0;
+	font-size: 1em;
+	color: #999;
+	font-family: 'Quicksand', sans-serif;
+	border: 3px solid #4387AD;
+  border-radius: 12px;
+}
+
+.container_select-button:hover{
+  background: #dbeafe;
+}
+
+.container_validation{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 55px;
+  margin: 40px 0;
+  border-bottom: solid 2px black;
+}
+
+.validation_text{
+  font-size: 40px;
+  color: #E5E7E9;
+  text-shadow: 
+    0 0 5px rgba(255,59,147,1),
+    0 0 10px rgba(255,59,147,1),
+    0 0 40px rgba(255,59,147,1),
+    0 0 40px rgba(255,59,147,1),
+    0 0 40px rgba(255,59,147,1),
+    0 0 40px rgba(255,59,147,1);
+  margin: 10px 70px;
+}
+
+/* STYLES FOR THE CREATED COUNTERS */
+.container_countdowns{
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
 }
-.contenedor-timer3{
+.container_countdowns-new{
   margin: 15px 15px;
   width: 40%;
   height: 170px;
@@ -42,11 +170,10 @@ body{
   box-shadow: 
     2px 2px 40px #131617,
     10px 10px 35px #131617;
-   
 }
 
-.timer-name{
-  font-family:  OCR A Std, monospace;
+.timer_name{
+  font-family:  'OCR A Std', monospace;
   font-size: 20px;
   font-weight: 500;
   letter-spacing: 4px;
@@ -55,7 +182,7 @@ body{
   color: #BFCFD5 ;
 }
 
-.timer-info{
+.timer_info{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -67,12 +194,13 @@ body{
   color: #808080;
 }
 
-.timer-days{
-  font-size: 12px;
+.timer_info-remain{
+  font-family: 'OCR A Std', monospace;
+  font-size: 10px;
   max-width: 40px;
 }
 
-.timer-clock{
+.timer_clock{
   font-family: 'digital';
   color: #2DFFFC;
   font-size: 45px;
@@ -83,7 +211,7 @@ body{
     0 0 3px #2DFFFC;
 }
 
-.timer-space{
+.timer_space{
   font-family: 'digital';
   font-size: 40px;
   color: #2DFFFC;
@@ -94,15 +222,15 @@ body{
     0 0 3px #2DFFFC;
 }
 
-/*ESTILOS PARA EL BOTON DE ELIMINAR*/
-.container-delete{
+/* STYLE FOR DELETE BUTTON */
+.container_countdowns-header{
   display: flex;
   justify-content: space-around;
   height: 30px;
   margin: 15px 0 40px 0;
 }
 
-.delete{
+.timer_delete{
   cursor: pointer;
   font-size: 30px;
   font-family: 'Material Symbols Outlined';
@@ -126,133 +254,4 @@ body{
     0 0 5px #2DFFFC,
     0 0 3px #2DFFFC; 
   }
-}
-
-/* ESTILOS PARA EL FORMULARIO CREADOR DE CONTADOR*/
-.timer-title{
-  font-family: 'digital';
-  font-size: 50px;
-  font-weight: 500;
-  letter-spacing: 4px;
-  text-align: center;
-  color: #2DFFFC;
-  text-shadow:
-   0 0 10px #AAB7B8;
-}
-
-.contenedor-form{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  max-width: 90%;
-  margin: auto;
-}
-
-.input-name{
-  display: inline-block;
-	width: 200px;
-  margin: 5px;
-  padding: 7px 10px;
-  height: 25px;
-	background: #f0f0f0;
-	font-size: 1em;
-	color: #999;
-	font-family: 'Quicksand', sans-serif;
-	border:2px solid rgba(0,0,0,0.2);
-  border-radius: 12px;
-}
-
-.select-option{
-  margin: 5px;
-  height: 42px;
-}
-
-.content-select{
-  max-width: 400px;
-	position: relative;
-}
-
-.content-select select{
-  appearance: none;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-  display: inline-block;
-	width: 180px;
-	cursor: pointer;
-  padding: 7px 10px;
-  height: 42px;
-  outline: 0; 
-	background: #f0f0f0;
-	font-size: 1em;
-	color: #999;
-	font-family: 'Quicksand', sans-serif;
-	border:2px solid rgba(0,0,0,0.2);
-  border-radius: 12px;
-  position: relative;
-  transition: all 0.25s ease;
-}
-
-.content-select select:hover{
-	background: #dbeafe;
-}
-
-.content-select i{
-	position: absolute;
-	right: 20px;
-	top: calc(50% - 13px);
-	width: 16px;
-	height: 16px;
-	display: block;
-	border-left:4px solid #2b97fa;
-	border-bottom:4px solid #2b97fa;
-	transform: rotate(-45deg); /* Giramos el cuadrado */
-	transition: all 0.25s ease;
-}
- 
-.content-select:hover i{
-	margin-top: 3px;
-}
-
-.button{
-  appearance: none;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-  display: inline-block;
-	width: 200px;
-  margin: 5px;
-	cursor: pointer;
-  padding: 7px 10px;
-  height: 42px;
-  outline: 0;
-	background: #f0f0f0;
-	font-size: 1em;
-	color: #999;
-	font-family: 'Quicksand', sans-serif;
-	border: 3px solid #2b97fa;
-  border-radius: 12px;
-}
-
-.button:hover{
-  background: #dbeafe;
-}
-
-.container-info{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin: 40px 0;
-  border-bottom: solid 2px black;
-}
-
-.newMonth, .newDay2, .newYear{
-  font-size: 40px;
-  color: #E5E7E9;
-  text-shadow: 
-    0 0 5px rgba(255,59,147,1),
-    0 0 10px rgba(255,59,147,1),
-    0 0 40px rgba(255,59,147,1),
-    0 0 40px rgba(255,59,147,1),
-    0 0 40px rgba(255,59,147,1),
-    0 0 40px rgba(255,59,147,1);
-  margin: 10px 70px;
 }
