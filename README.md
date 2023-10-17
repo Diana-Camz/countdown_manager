@@ -15,7 +15,7 @@ I almost lost my sanity working on this project, but it's a counter creator as a
 
 2. Open the project in your code editor and visualize it in the browser using Live Server.
 
-## See this Proyect
+## See this Project
 You can view this project on the following website: `https://countdown-manager.netlify.app/`
 
 ## Contributions

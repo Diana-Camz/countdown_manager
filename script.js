@@ -64,9 +64,9 @@ function Create(){
   const year = form["optionYear"];
   let text = `<div id="newDay" class="container_info-selected">You must fill in all of the fields</div>`;
 
-  if (!month.value || !day.value || !year.value || name.value=="") {
+  if(!month.value || !day.value || !year.value || name.value==""){
     document.getElementById("validation").innerHTML = text;
-    console.log("holi");
+    console.log(month.value);
     setTimeout(() => {
       document.getElementById("validation").innerHTML = " ";
     }, 4000);
